@@ -34,12 +34,16 @@ module Guessr
     end
 
     def new_game(player)
-      game = Game.create(answer: rand(100), player_id: player.id)
+      game = player.games.create(answer: rand(100))
+#     game = Game.create(answer: rand(100), player_id: player.id)
       play(game)
     end
 
     def resume_game(player)
-      games = Game.where(player_id: player.id, finished: false)
+#     games = player.games
+#     game = player.games.find_by(answer: 42)
+      games = player.games.where(finished: false)
+#     games = Game.where(player_id: player.id, finished: false)
       games.each do |game|
         puts "Game (id: #{game.id}, last guess: #{game.last_guess})"
       end

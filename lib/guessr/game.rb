@@ -1,5 +1,7 @@
 module Guessr
   class Game < ActiveRecord::Base
+    belongs_to :player
+
     def low_or_high
       self.last_guess < self.answer ? "low" : "high"
     end
