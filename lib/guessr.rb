@@ -1,5 +1,10 @@
+require "pry"
+
 require "guessr/version"
+require "guessr/init_db"
+require "guessr/player"
 
 module Guessr
-  # Your code goes here...
+  class App
+  end
 end
